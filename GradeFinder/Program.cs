@@ -26,7 +26,7 @@ namespace GradeFinder
 
                 for (int i = 0; i < numExams; i++)
                 {
-                    exams.Add(new Exam { Description = ("Test " + i).ToString(), Score = -999 });
+                    exams.Add(new Exam { Description = ("Test " + (i+1)).ToString(), Score = -999 });
                 }
 
                 List<int> examScores = new List<int>();
@@ -41,12 +41,25 @@ namespace GradeFinder
                     exams[i].Score = int.Parse(Input[i]);
                 }
 
+                for (int i = 0; i < exams.Count; i++)
+                {
+                    if (exams[i].Score == -999)
+                    { 
+                        Console.WriteLine("Exam to be adjusted to 0: " + exams[i].Description + " " + exams[i].Score);
+                    }
+                }
+
                 int untakenExams = exams.Where(o => o.Score == -999).Count();
 
                 if (untakenExams > 0)
                 {
                     //Received null error on this update when all exams had a score
-                    exams.Where(o => o.Score == -999).FirstOrDefault().Score = 0;
+                    // Updates First records only as we might guess exams.Where(o => o.Score == -999).FirstOrDefault().Score = 0;
+                    foreach (Exam ex in exams.Where( ex=> ex.Score == -999))
+                    {
+                        ex.Score = 0;
+                    }
+
                 }
                 for (int i = 0; i < exams.Count; i++)
                 {
