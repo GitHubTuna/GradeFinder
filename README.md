@@ -1,10 +1,10 @@
 # GradeFinder
 
-Student grade calculator based on course structure and desired course grade.
+Student grade calculator based on course structure and desired course grade. 
 
-This project will get the following information from the user
+This project will get the following information from the user.
 
-# of assessments and the weight that each of these assessments.
+Number of assessments and the weight that each of these assessments.
 
 It will then acquire the current scores for the user for items already completed.
 
