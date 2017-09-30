@@ -24,6 +24,12 @@ namespace GradeFinder
             set { score = value; }
         }
 
+        private bool isScored;
+        public bool IsScored
+        {
+            get { return isScored; }
+            set { isScored = value; }
+        }
 
     }
 }

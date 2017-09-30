@@ -10,5 +10,6 @@ namespace GradeFinder
     {
         string Description { get; set; }
         double Score { get; set; }
+        bool IsScored { get; set; }
     }
 }

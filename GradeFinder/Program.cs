@@ -13,7 +13,7 @@ namespace GradeFinder
             //Add code to ask what assessment types the student has
             //Prompt only for Assessments that exist
 
-            Console.WriteLine("How many exams did you have before your final");
+            Console.WriteLine("How many exams do you have before your final?");
             int numExams=int.Parse(Console.ReadLine());
 
             if (numExams > 0)
@@ -26,7 +26,7 @@ namespace GradeFinder
 
                 for (int i = 0; i < numExams; i++)
                 {
-                    exams.Add(new Exam { Description = ("Test " + (i+1)).ToString(), Score = -999 });
+                    exams.Add(new Exam { Description = ("Test " + (i + 1)).ToString(), Score = 0, IsScored = false });
                 }
 
                 List<int> examScores = new List<int>();
@@ -39,38 +39,25 @@ namespace GradeFinder
                 for (int i = 0; i < Input.Length; i++)
                 {
                     exams[i].Score = int.Parse(Input[i]);
+                    exams[i].IsScored = true;
                 }
 
                 for (int i = 0; i < exams.Count; i++)
                 {
-                    if (exams[i].Score == -999)
-                    { 
-                        Console.WriteLine("Exam to be adjusted to 0: " + exams[i].Description + " " + exams[i].Score);
-                    }
+                    //Ternary operartor 
+                    //Condition == Value ? Value When True : Value When False
+                    string status = 
+                        exams[i].IsScored == true 
+                                ? 
+                                exams[i].Description + " has a score of " + exams[i].Score + "."
+                                : 
+                                "You have not yet taken " + exams[i].Description + " a score of 0 will be used within the calculation for this exam.";
+
+                    Console.WriteLine(status);
                 }
 
-                int untakenExams = exams.Where(o => o.Score == -999).Count();
-
-                if (untakenExams > 0)
-                {
-                    //Received null error on this update when all exams had a score
-                    // Updates First records only as we might guess exams.Where(o => o.Score == -999).FirstOrDefault().Score = 0;
-                    foreach (Exam ex in exams.Where( ex=> ex.Score == -999))
-                    {
-                        ex.Score = 0;
-                    }
-
-                }
-                for (int i = 0; i < exams.Count; i++)
-                {
-                    Console.WriteLine(exams[i].Description + " " + exams[i].Score);
-                }
-
-                Console.WriteLine("You have " + untakenExams + " untaken exams, correct?");
                 Console.ReadLine();
-                //Code continues...
-            
-
+                
             }
 
         }
