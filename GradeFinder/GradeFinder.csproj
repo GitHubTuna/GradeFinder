@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Assessment.cs" />
     <Compile Include="Exam.cs" />
+    <Compile Include="AssessmentHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

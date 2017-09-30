@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GradeFinder
 {
-    class Exam :Assessment 
+    class Exam : Assessment
     {
         private string description;
 
@@ -30,6 +30,5 @@ namespace GradeFinder
             get { return isScored; }
             set { isScored = value; }
         }
-
     }
 }

@@ -20,7 +20,7 @@ namespace GradeFinder
             {
                 Console.WriteLine("What was the weight of your final grade given to these exams?");
                 Console.WriteLine("enter 20% as 20)");
-                int weight = int.Parse(Console.ReadLine());
+                double weight = double.Parse(Console.ReadLine())/100;
 
                 var exams = new List<Exam>();
 
@@ -42,6 +42,12 @@ namespace GradeFinder
                     exams[i].IsScored = true;
                 }
 
+                //The average method is built into C# lists
+                double averageExamScore = exams.Where(o=>o.IsScored==true).Average(o => o.Score);
+
+                double classExamPointEarned = averageExamScore * (weight);
+
+
                 for (int i = 0; i < exams.Count; i++)
                 {
                     //Ternary operartor 
@@ -54,10 +60,19 @@ namespace GradeFinder
                                 "You have not yet taken " + exams[i].Description + " a score of 0 will be used within the calculation for this exam.";
 
                     Console.WriteLine(status);
+                    
                 }
 
+                AssessmentHelper aHelper = new AssessmentHelper();
+                double examPercent = (classExamPointEarned /((weight)/100))/100;
+
+
+                Console.WriteLine("You have earned " + classExamPointEarned + " percentage points toward your final grade in this course.");
+                Console.WriteLine("This point total is of a max score of " + weight*100 + " percent of your grade.");
+                Console.WriteLine("Exams you have taken average " + examPercent + "% (" + aHelper.GetLetterGrade(examPercent) + ")");
+
+               
                 Console.ReadLine();
-                
             }
 
         }
