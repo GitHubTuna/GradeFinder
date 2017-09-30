@@ -10,8 +10,7 @@ namespace GradeFinder
     {
         static void Main(string[] args)
         {
-            //Created App   
-            //Send
+            //GradeFinder
         }
     }
 }
