@@ -43,10 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assessment.cs" />
+    <Compile Include="Attendance.cs" />
     <Compile Include="Exam.cs" />
     <Compile Include="AssessmentHelper.cs" />
+    <Compile Include="FinalExam.cs" />
+    <Compile Include="Homework.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
