@@ -191,7 +191,7 @@ namespace GradeFinder
                 finalExamPointsEarned = averageFinalExamsScore;
 
             }
-
+            //TEST Commit
             double overallClassScore = finalExamPointsEarned * finalExamWeight + homeworkPointsEarned *homeworkWeight + quizPointsEarned * quizWeight  + attendancePointsEarned * attendanceWeight  + examPointsEarned * examWeight;
 
             AssessmentHelper aHelper = new AssessmentHelper();
