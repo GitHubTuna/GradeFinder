@@ -11,7 +11,7 @@ namespace GradeFinder
         static void Main(string[] args)
         {
             //Program currently simply calculates student's overall grade based upon course assessment values
-
+            //Test Change
             double attendancePointsEarned=0;
             double homeworkPointsEarned = 0;
             double quizPointsEarned = 0;
